@@ -1,0 +1,53 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+    - name: Make gradlew executable
+      run: chmod +x ./gradlew
+    - name: Run Build
+      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+      with:
+        arguments: build
+    - name: Run ShadowJar
+      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+      with:
+        arguments: shadowJar
+    - name: Upload api
+      uses: actions/upload-artifact@v3
+      with:
+        name: camera-api
+        path: camera-api/build/libs/*.jar
+    - name: Upload plugin
+      uses: actions/upload-artifact@v3
+      with:
+        name: camera-plugin
+        path: camera-impl/build/libs/*-all.jar
+    - name: Upload test plugin
+      uses: actions/upload-artifact@v3
+      with:
+        name: camera-test-plugin
+        path: camera-test-impl/build/libs/*-all.jar
