@@ -1,0 +1,5 @@
+name: CameraTest
+main: net.deechael.camera.test.CameraTestPlugin
+version: 1.00.0
+api-version: 1.13
+author: DeeChael

@@ -1,0 +1,5 @@
+name: CameraAPI
+main: net.deechael.camera.CameraPlugin
+version: 1.00.0
+api-version: 1.13
+author: DeeChael

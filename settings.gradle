@@ -1,0 +1,5 @@
+rootProject.name = 'camera'
+include 'camera-api'
+include 'camera-impl'
+include 'camera-test'
+
