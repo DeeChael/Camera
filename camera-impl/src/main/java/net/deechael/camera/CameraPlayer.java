@@ -128,6 +128,7 @@ public final class CameraPlayer implements Listener {
         BukkitTask task = new BukkitRunnable() {
             @Override
             public void run() {
+                // TODO: path.axis() should be calculated and be used right here, but I don't know how to implement it
                 for (double start = 50; start <= (ticks * 50); start += 50) {
                     try {
                         Thread.sleep(50L);
