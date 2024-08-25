@@ -1,6 +1,8 @@
 # Camera
 a light-weight bukkit library for camera movement animation
 
+**ATTENTION**: This project is already outdated. If you want the a camera movement library, you can try my [visual-api](https://github.com/DeeChael/visual-api), which has more parameters like Curve to make the camera movement more customizable.
+
 ## Known Issues
 1. The transition is not smooth, so maybe you should try to find a way to set a perfect looking center and use looking reverse well to make the animation smoothly
 2. Path axis feature hasn't been implemented yet because I don't know how to calculate ellipse
